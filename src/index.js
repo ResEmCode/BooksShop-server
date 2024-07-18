@@ -8,7 +8,7 @@ import checkAuth from "./middleware/checkAuth";
 
 mongoose
   .connect(
-    "mongodb+srv://Monoblade:<password>@maincluster.y9ksfln.mongodb.net/?retryWrites=true&w=majority&appName=MainCluster"
+    "mongodb+srv://Monoblade:au8vZDM8kHgBsJy@maincluster.y9ksfln.mongodb.net/?retryWrites=true&w=majority&appName=MainCluster"
   )
   .then(() => {
     console.log("MongoDB connected");
