@@ -1,0 +1,36 @@
+{
+  "name": "books-shop-back-end",
+  "version": "0.0.0",
+  "description": "Backend part of our project",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ResEmCode/BooksShop-server.git"
+  },
+  "keywords": [
+    "a",
+    "zachem",
+    "oni",
+    "nujni?"
+  ],
+  "author": "ResEmCode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ResEmCode/BooksShop-server/issues"
+  },
+  "homepage": "https://github.com/ResEmCode/BooksShop-server#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-validator": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.5.1",
+    "nodemon": "^3.1.4"
+  }
+}
