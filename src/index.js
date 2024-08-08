@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
-import { register, login, getMe } from "./controllers/auth";
-import { registrationValidator, loginValidator } from "./validators/auth";
-import handleValidationsErrors from "./utils/handleValidationsErrors";
-import checkAuth from "./middleware/checkAuth";
+import { register, login, getMe } from "./controllers/auth.mjs";
+import { registrationValidation, loginValidation } from "./validations/auth.mjs";
+import handleValidationsErrors from "./utils/handleValidationsErrors.mjs";
+import checkAuth from "./middlewares/checkAuth.mjs";
 
 mongoose
   .connect(
@@ -17,17 +17,23 @@ mongoose
     console.log("MongoDB connection error: ", err);
   });
 
-const app = express()
+const app = express();
 
-app.use(express.json())
-app.use(cors({
-  origin: "http://localhost:3000",
-  credentials: true
-}))
+app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 
-app.post("/api/auth/register", registrationValidator, handleValidationsErrors, register)
-app.post("/api/auth/login", loginValidator, handleValidationsErrors, login)
-app.get("/api/auth/me", checkAuth, getMe)
+app.post(
+  "/api/auth/register",
+  registrationValidation,
+  handleValidationsErrors,
+  register
+);
+app.post("/api/auth/login", loginValidation, handleValidationsErrors, login);
+app.get("/api/auth/me", checkAuth, getMe);
 
-
-app.listen(5000, () => console.log("Server started on port 5000"))
+app.listen(5000, () => console.log("Server started on port 5000"));
